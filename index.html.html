@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Giddies Empire | Music School & Training</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#FBF7F0;--ink:#1C1033;--panel:#fff;--muted:#5d5470;--gold:#B9811A;--gold-soft:#F1E3C2;--line:#e4dccb;--key-w:#fff;--key-b:#1C1033;--hero:#1C1033;--hero-ink:#FBF7F0;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#140B25;--ink:#F4EEE2;--panel:#1F1436;--muted:#b3a9c8;--gold:#E3AE4A;--gold-soft:#3a2b52;--line:#33264d;--hero:#0d0719;--hero-ink:#F4EEE2}}
+:root[data-theme="dark"]{--bg:#140B25;--ink:#F4EEE2;--panel:#1F1436;--muted:#b3a9c8;--gold:#E3AE4A;--gold-soft:#3a2b52;--line:#33264d;--hero:#0d0719;--hero-ink:#F4EEE2}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.6 "DM Sans",system-ui,sans-serif}
+h1,h2,h3{font-family:"Bricolage Grotesque",Georgia,sans-serif;line-height:1.05;margin:0}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+nav{display:flex;justify-content:space-between;align-items:center;padding:18px 0}
+.logo{font:800 1.3rem "Bricolage Grotesque",sans-serif;text-decoration:none;color:var(--hero-ink)}
+nav a.cta{background:var(--gold);color:#1C1033;padding:9px 18px;border-radius:999px;text-decoration:none;font-weight:500}
+.hero{background:var(--hero);color:var(--hero-ink);padding-bottom:0}
+.hero h1{font-size:clamp(2.8rem,9vw,6.5rem);font-weight:800;letter-spacing:-.03em;margin-top:clamp(28px,7vw,70px)}
+.hero p{max-width:34em;font-size:1.15rem;color:#d9d0ea;margin:22px 0 0}
+.hero .btns{margin:28px 0 36px;display:flex;gap:14px;flex-wrap:wrap}
+.btn{display:inline-block;background:var(--gold);color:#1C1033;font:500 1rem "DM Sans",sans-serif;padding:14px 26px;border-radius:999px;border:0;text-decoration:none;cursor:pointer}
+.btn.alt{background:transparent;color:var(--hero-ink);border:1.5px solid #6f5f94}
+.hint{font-size:.9rem;color:#a99dc4;margin:0 0 12px!important}
+.keys{display:flex;height:clamp(150px,28vw,230px);position:relative;user-select:none;-webkit-user-select:none;touch-action:manipulation;margin-top:6px}
+.k{flex:1;background:var(--key-w);border:1px solid #cfc6bd;border-top:0;border-radius:0 0 8px 8px;cursor:pointer;transition:transform .08s,background .08s;position:relative;padding:0}
+.k.on,.k:active{background:var(--gold-soft);transform:translateY(3px)}
+.k.b{position:absolute;top:0;width:calc(100%/8*.58);height:62%;background:var(--key-b);border:1px solid #000;border-radius:0 0 6px 6px;z-index:2}
+.k.b.on,.k.b:active{background:var(--gold);transform:translateY(2px)}
+section{padding:clamp(56px,9vw,100px) 0}
+h2{font-size:clamp(2rem,5vw,3.2rem);font-weight:800;letter-spacing:-.02em;max-width:14em}
+.lead{color:var(--muted);max-width:36em;margin:14px 0 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px;margin-top:38px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:24px}
+.card h3{font-size:1.4rem;margin-bottom:8px}
+.card p{margin:0;color:var(--muted);font-size:.98rem}
+.card small{display:block;margin-top:14px;color:var(--gold);font-weight:500}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,6vw,70px);align-items:start}
+.list{list-style:none;padding:0;margin:0}
+.list li{padding:18px 0;border-bottom:1px solid var(--line)}
+.list li:first-child{padding-top:0}
+.list b{font-family:"Bricolage Grotesque",sans-serif;font-size:1.2rem;display:block}
+.list span{color:var(--muted)}
+.band{background:var(--gold-soft)}
+form{display:grid;gap:14px;margin-top:30px;max-width:520px}
+label{font-weight:500;font-size:.95rem;display:grid;gap:6px}
+input,select,textarea{font:inherit;padding:12px 14px;border-radius:10px;border:1.5px solid var(--line);background:var(--panel);color:var(--ink)}
+.ok{display:none;margin-top:22px;padding:18px;border-radius:12px;background:var(--panel);border:1.5px solid var(--gold);max-width:520px}
+footer{background:var(--hero);color:#cfc5e6;padding:34px 0;font-size:.95rem}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.wa{display:inline-flex;align-items:center;gap:8px}.wa svg{width:20px;height:20px;flex:none}
+.wafab{position:fixed;right:18px;bottom:calc(18px + env(safe-area-inset-bottom,0px));width:58px;height:58px;border-radius:50%;background:#25D366;color:#fff;display:grid;place-items:center;box-shadow:0 6px 18px rgba(0,0,0,.3);z-index:20}.wafab svg{width:32px;height:32px}
+@media(max-width:760px){.split{grid-template-columns:1fr}.k.b{width:calc(100%/8*.62)}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="wrap">
+    <nav>
+      <a class="logo" href="#top">Giddies Empire</a>
+      <a class="cta wa" href="https://wa.me/2349012569892?text=Hello%20Giddies%20Empire%2C%20I%20want%20to%20enrol." target="_blank" rel="noopener"><svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16 3C8.8 3 3 8.8 3 16c0 2.3.6 4.5 1.7 6.4L3 29l6.8-1.8c1.9 1 4 1.6 6.2 1.6 7.2 0 13-5.8 13-13S23.2 3 16 3zm0 23.7c-2 0-3.9-.5-5.6-1.5l-.4-.2-4 1 1.1-3.9-.3-.4C5.7 20 5.1 18.1 5.1 16c0-6 4.900-10.900 10.900-10.900S26.900 10 26.900 16 22 26.700 16 26.700zM22.100 18.800c-.3-.2-1.800-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.200-.2.200-.3.200-.6.100-.3-.1-1.200-.4-2.300-1.400-.9-.8-1.400-1.700-1.600-2-.2-.3 0-.5.100-.6l.4-.5c.1-.2.200-.3.300-.5.100-.2 0-.4 0-.5-.1-.1-.7-1.600-.9-2.200-.2-.6-.5-.5-.7-.5h-.5c-.2 0-.5.100-.8.400-.3.300-1 1-1 2.400s1 2.800 1.200 3c.1.200 2 3.100 4.900 4.300 2.900 1.200 2.900.8 3.400.8.500-.1 1.700-.7 1.900-1.400.2-.7.2-1.200.2-1.400-.1-.1-.3-.2-.6-.3z"/></svg>WhatsApp us</a>
+    </nav>
+    <div id="top">
+      <h1>Learn music.<br>Own the stage.</h1>
+      <p>Giddies Empire is a music school for beginners, church musicians and rising artists. Real instruments, patient teachers and performances from your first term.</p>
+      <div class="btns"><a class="btn wa" href="https://wa.me/2349012569892?text=Hello%20Giddies%20Empire%2C%20I%20want%20a%20free%20trial%20class." target="_blank" rel="noopener"><svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16 3C8.8 3 3 8.8 3 16c0 2.3.6 4.5 1.7 6.4L3 29l6.8-1.8c1.9 1 4 1.6 6.2 1.6 7.2 0 13-5.8 13-13S23.2 3 16 3zm0 23.7c-2 0-3.9-.5-5.6-1.5l-.4-.2-4 1 1.1-3.9-.3-.4C5.7 20 5.1 18.1 5.1 16c0-6 4.900-10.900 10.900-10.900S26.900 10 26.900 16 22 26.700 16 26.700zM22.100 18.800c-.3-.2-1.800-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.200-.2.200-.3.200-.6.100-.3-.1-1.200-.4-2.300-1.400-.9-.8-1.400-1.700-1.600-2-.2-.3 0-.5.100-.6l.4-.5c.1-.2.200-.3.300-.5.100-.2 0-.4 0-.5-.1-.1-.7-1.600-.9-2.200-.2-.6-.5-.5-.7-.5h-.5c-.2 0-.5.100-.8.400-.3.300-1 1-1 2.400s1 2.800 1.200 3c.1.200 2 3.100 4.900 4.300 2.900 1.200 2.900.8 3.400.8.500-.1 1.700-.7 1.900-1.400.2-.7.2-1.200.2-1.400-.1-.1-.3-.2-.6-.3z"/></svg>Book a free trial on WhatsApp</a><a class="btn alt" href="#programs">See our programs</a></div>
+      <p class="hint">Tap or click the keys to play, or use A to K on your keyboard.</p>
+    </div>
+    <div class="keys" id="keys" role="group" aria-label="Playable piano keys"></div>
+  </div>
+</header>
+
+<main>
+<section id="programs">
+  <div class="wrap">
+    <h2>Pick your instrument. We handle the rest.</h2>
+    <p class="lead">Every program has a beginner, intermediate and advanced track. You move up when you are ready.</p>
+    <div class="grid">
+      <div class="card"><h3>Piano & Keyboard</h3><p>Chords, reading, church and gospel playing, and pop accompaniment.</p><small>Ages 6 and up</small></div>
+      <div class="card"><h3>Guitar</h3><p>Acoustic, electric and bass. Strumming, lead lines and playing in a band.</p><small>Ages 8 and up</small></div>
+      <div class="card"><h3>Vocals</h3><p>Breath, pitch, harmony and stage confidence for solo and choir singers.</p><small>All ages</small></div>
+      <div class="card"><h3>Drums</h3><p>Rudiments, groove and live timing, with practice kits in every room.</p><small>Ages 8 and up</small></div>
+      <div class="card"><h3>Music Theory & Production</h3><p>Read and write music, then record and mix your own songs.</p><small>Ages 12 and up</small></div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="why">
+  <div class="wrap split">
+    <div>
+      <h2>Small classes, real stage time.</h2>
+      <p class="lead">You learn faster when someone is listening to you play. That is how we teach.</p>
+    </div>
+    <ul class="list">
+      <li><b>Private and small-group lessons</b><span>One-on-one, or groups of five or fewer, so every student gets feedback.</span></li>
+      <li><b>A recital every term</b><span>Students perform for family and friends on a real stage with sound.</span></li>
+      <li><b>Flexible schedules</b><span>Weekday evenings and weekend classes that fit school and work.</span></li>
+      <li><b>Instruments provided</b><span>Practise in class on our instruments before you buy your own.</span></li>
+    </ul>
+  </div>
+</section>
+
+<section id="enrol">
+  <div class="wrap">
+    <h2>Start with a free trial class.</h2>
+    <p class="lead">Tell us what you want to learn and we will reply on WhatsApp (+234 901 256 9892) to fix a time.</p>
+    <form id="f">
+      <label>Full name<input name="n" required autocomplete="name"></label>
+      <label>Phone or WhatsApp number<input name="p" type="tel" required autocomplete="tel"></label>
+      <label>Program<select name="g"><option>Piano & Keyboard</option><option>Guitar</option><option>Vocals</option><option>Drums</option><option>Music Theory & Production</option></select></label>
+      <label>Anything we should know? (optional)<textarea name="m" rows="3"></textarea></label>
+      <button class="btn" type="submit">Send on WhatsApp</button>
+    </form>
+    <div class="ok" id="ok" role="status"></div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© Giddies Empire Music School</span>
+    <span>Classes from Monday to Saturday</span>
+  </div>
+</footer>
+<a class="wafab" href="https://wa.me/2349012569892?text=Hello%20Giddies%20Empire" target="_blank" rel="noopener" aria-label="Chat with Giddies Empire on WhatsApp"><svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16 3C8.8 3 3 8.8 3 16c0 2.3.6 4.5 1.7 6.4L3 29l6.8-1.8c1.9 1 4 1.6 6.2 1.6 7.2 0 13-5.8 13-13S23.2 3 16 3zm0 23.7c-2 0-3.9-.5-5.6-1.5l-.4-.2-4 1 1.1-3.9-.3-.4C5.7 20 5.1 18.1 5.1 16c0-6 4.900-10.900 10.900-10.900S26.900 10 26.900 16 22 26.700 16 26.700zM22.100 18.800c-.3-.2-1.800-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.200-.2.200-.3.200-.6.100-.3-.1-1.200-.4-2.300-1.400-.9-.8-1.400-1.700-1.600-2-.2-.3 0-.5.100-.6l.4-.5c.1-.2.200-.3.300-.5.100-.2 0-.4 0-.5-.1-.1-.7-1.600-.9-2.200-.2-.6-.5-.5-.7-.5h-.5c-.2 0-.5.100-.8.400-.3.300-1 1-1 2.400s1 2.800 1.200 3c.1.200 2 3.100 4.900 4.300 2.900 1.200 2.900.8 3.400.8.500-.1 1.700-.7 1.900-1.400.2-.7.2-1.200.2-1.400-.1-.1-.3-.2-.6-.3z"/></svg></a>
+
+<script>
+(function(){
+  var notes=[["C",261.63,0],["D",293.66,0],["E",329.63,0],["F",349.23,0],["G",392,0],["A",440,0],["B",493.88,0],["C",523.25,0]];
+  var black=[[277.18,1],[311.13,2],[369.99,4],[415.3,5],[466.16,6]];
+  var wk="asdfghjk",bk="wetyu",box=document.getElementById("keys"),ctx=null,els={};
+  function play(f){
+    try{
+      ctx=ctx||new (window.AudioContext||window.webkitAudioContext)();
+      if(ctx.state==="suspended")ctx.resume();
+      var o=ctx.createOscillator(),g=ctx.createGain(),o2=ctx.createOscillator();
+      o.type="triangle";o2.type="sine";o.frequency.value=f;o2.frequency.value=f*2;
+      g.gain.setValueAtTime(.0001,ctx.currentTime);
+      g.gain.exponentialRampToValueAtTime(.35,ctx.currentTime+.01);
+      g.gain.exponentialRampToValueAtTime(.0001,ctx.currentTime+1.4);
+      o.connect(g);o2.connect(g);g.connect(ctx.destination);
+      o.start();o2.start();o.stop(ctx.currentTime+1.5);o2.stop(ctx.currentTime+1.5);
+    }catch(e){}
+  }
+  function hit(el,f){play(f);el.classList.add("on");setTimeout(function(){el.classList.remove("on")},180)}
+  notes.forEach(function(n,i){
+    var b=document.createElement("button");b.className="k";b.type="button";b.setAttribute("aria-label","Note "+n[0]);
+    b.addEventListener("pointerdown",function(e){e.preventDefault();hit(b,n[1])});
+    box.appendChild(b);els[wk[i]]=[b,n[1]];
+  });
+  black.forEach(function(n,i){
+    var b=document.createElement("button");b.className="k b";b.type="button";b.setAttribute("aria-label","Sharp note");
+    b.style.left="calc("+(n[1]*12.5)+"% - "+(12.5*.31)+"%)";
+    b.addEventListener("pointerdown",function(e){e.preventDefault();hit(b,n[0])});
+    box.appendChild(b);els[bk[i]]=[b,n[0]];
+  });
+  document.addEventListener("keydown",function(e){
+    if(e.repeat||e.metaKey||e.ctrlKey||e.altKey)return;
+    var t=e.target.tagName;if(t==="INPUT"||t==="TEXTAREA"||t==="SELECT")return;
+    var k=els[e.key.toLowerCase()];if(k)hit(k[0],k[1]);
+  });
+  document.getElementById("f").addEventListener("submit",function(e){
+    e.preventDefault();
+    var d=new FormData(e.target),ok=document.getElementById("ok");
+    var m="Hello Giddies Empire, I am "+d.get("n")+". I would like a free trial class in "+d.get("g")+". My number: "+d.get("p")+(d.get("m")?". Note: "+d.get("m"):"");var u="https://wa.me/2349012569892?text="+encodeURIComponent(m);ok.innerHTML="";ok.appendChild(document.createTextNode("Thank you, "+d.get("n")+". Tap to send your request on WhatsApp: "));var a=document.createElement("a");a.href=u;a.target="_blank";a.rel="noopener";a.textContent="Open WhatsApp";ok.appendChild(a);window.open(u,"_blank");
+    ok.style.display="block";e.target.reset();ok.scrollIntoView({block:"center"});
+  });
+})();
+</script>
+</body>
+</html>
